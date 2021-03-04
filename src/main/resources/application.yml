@@ -1,0 +1,6 @@
+spring:
+  elasticsearch:
+    rest:
+      password: veeder-root2021
+      uris: es-cn-n6w229l6r001mvx1f.public.elasticsearch.aliyuncs.com:9200
+      username: elastic
