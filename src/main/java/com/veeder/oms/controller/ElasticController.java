@@ -1,5 +1,6 @@
 package com.veeder.oms.controller;
 
+import com.veeder.oms.bean.AlarmBean;
 import com.veeder.oms.bean.DocBean;
 import com.veeder.oms.service.IElasticService;
 import lombok.extern.log4j.Log4j2;
@@ -32,6 +33,11 @@ public class ElasticController {
     @GetMapping("/all")
     public Iterator<DocBean> all(){
         return elasticService.findAll();
+    }
+
+    @GetMapping("/all")
+    public Iterator<AlarmBean> allAlarm(){
+        return elasticService.findAllAlarm();
     }
 
 }

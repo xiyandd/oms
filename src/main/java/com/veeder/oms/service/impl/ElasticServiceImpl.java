@@ -1,6 +1,8 @@
 package com.veeder.oms.service.impl;
 
+import com.veeder.oms.bean.AlarmBean;
 import com.veeder.oms.bean.DocBean;
+import com.veeder.oms.dao.AlarmElasticRepository;
 import com.veeder.oms.dao.ElasticRepository;
 import com.veeder.oms.service.IElasticService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,8 @@ public class ElasticServiceImpl implements IElasticService {
     private ElasticsearchRestTemplate elasticsearchTemplate;
     @Autowired
     private ElasticRepository elasticRepository;
-
+    @Autowired
+    private AlarmElasticRepository alarmElasticRepository;
     private Pageable pageable = PageRequest.of(0,10);
 
     @Override
@@ -66,5 +69,10 @@ public class ElasticServiceImpl implements IElasticService {
     @Override
     public Page<DocBean> query(String key) {
         return elasticRepository.findByContent(key,pageable);
+    }
+
+    @Override
+    public Iterator<AlarmBean> findAllAlarm() {
+        return alarmElasticRepository.findAll().iterator();
     }
 }

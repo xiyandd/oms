@@ -1,5 +1,6 @@
 package com.veeder.oms.service;
 
+import com.veeder.oms.bean.AlarmBean;
 import com.veeder.oms.bean.DocBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,4 +27,6 @@ public interface IElasticService {
     Page<DocBean> findBySecordCode(String secordCode);
 
     Page<DocBean> query(String key);
+
+    Iterator<AlarmBean> findAllAlarm();
 }
