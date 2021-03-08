@@ -5,6 +5,7 @@ import com.veeder.oms.bean.DocBean;
 import com.veeder.oms.service.IElasticService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,8 +37,8 @@ public class ElasticController {
     }
 
     @GetMapping("/all")
-    public Iterator<AlarmBean> allAlarm(){
-        return elasticService.findAllAlarm();
+    public Page<AlarmBean> allAlarm(){
+        return elasticService.findPageAlarm();
     }
 
 }

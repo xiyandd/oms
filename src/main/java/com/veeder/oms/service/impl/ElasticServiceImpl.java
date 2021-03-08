@@ -75,4 +75,9 @@ public class ElasticServiceImpl implements IElasticService {
     public Iterator<AlarmBean> findAllAlarm() {
         return alarmElasticRepository.findAll().iterator();
     }
+
+    @Override
+    public Page<AlarmBean> findPageAlarm() {
+        return alarmElasticRepository.findByContent(pageable);
+    }
 }

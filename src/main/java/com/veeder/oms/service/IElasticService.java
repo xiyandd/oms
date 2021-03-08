@@ -29,4 +29,6 @@ public interface IElasticService {
     Page<DocBean> query(String key);
 
     Iterator<AlarmBean> findAllAlarm();
+
+    Page<AlarmBean> findPageAlarm();
 }

@@ -11,12 +11,12 @@ public interface AlarmElasticRepository extends ElasticsearchRepository<AlarmBea
 
     //默认的注释
     //@Query("{\"bool\" : {\"must\" : {\"field\" : {\"content\" : \"?\"}}}}")
-    Page<DocBean> findByContent(String content, Pageable pageable);
+    Page<AlarmBean> findByContent(Pageable pageable);
 
     @Query("{\"bool\" : {\"must\" : {\"field\" : {\"firstCode.keyword\" : \"?\"}}}}")
-    Page<DocBean> findByFirstCode(String firstCode, Pageable pageable);
+    Page<AlarmBean> findByFirstCode(String firstCode, Pageable pageable);
 
     @Query("{\"bool\" : {\"must\" : {\"field\" : {\"secordCode.keyword\" : \"?\"}}}}")
-    Page<DocBean> findBySecordCode(String secordCode, Pageable pageable);
+    Page<AlarmBean> findBySecordCode(String secordCode, Pageable pageable);
 
 }
